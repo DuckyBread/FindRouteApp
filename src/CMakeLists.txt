@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(${CMAKE_PROJECT_NAME} VERSION 0.1 LANGUAGES CXX)
+project(FindRouteApp VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -15,20 +15,20 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets OpenGLWidgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets OpenGLWidgets)
 
 set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cc
-        mainwindow.h
-        mainwindow.ui
-        ../back/Data.cc
-        ../back/Data.h
-        ../back/Maze.cc
-        ../back/Maze.h
-        ../back/LoadData.cc
-        ../back/LoadData.h
-        ../back/SaveData.cc
-        ../back/SaveData.h
-        ../back/EllersAlgorithm.cc
-        ../back/EllersAlgorithm.h
+        ui/main.cpp
+        ui/mainwindow.cc
+        ui/mainwindow.h
+        ui/mainwindow.ui
+        model/Data.cc
+        model/Data.h
+        model/Maze.cc
+        model/Maze.h
+        model/LoadData.cc
+        model/LoadData.h
+        model/SaveData.cc
+        model/SaveData.h
+        model/EllersAlgorithm.cc
+        model/EllersAlgorithm.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

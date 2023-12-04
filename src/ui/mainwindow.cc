@@ -28,7 +28,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::FindRouteButton()
 {
-    frp::Maze maze(data_);
+    frp::Maze maze(*data_);
 
     if (data_->get_cols() == 0 || data_->get_rows() == 0) {
         ui_->statusbar->showMessage("Тут нет лабиринта 🥲");
@@ -72,7 +72,7 @@ void MainWindow::OpenFile(QString filepath) {
         throw std::logic_error("File cannot be opened");
     }
 
-    frp::LoadData load_data(data_);
+    frp::LoadData load_data(*data_);
     load_data.ReadFile(filepath.toStdString());
 
     filepath_ = filepath;
@@ -155,7 +155,7 @@ void MainWindow::GenerateMazeButton() {
     ui_->SrcRowSB->setMaximum(data_->get_rows() );
     ui_->SrcColumnSB->setMaximum(data_->get_cols());
 
-    frp::EllersAlgorithm mazeGenerator(data_);
+    frp::EllersAlgorithm mazeGenerator(*data_);
     data_->set_vertical_matrix(mazeGenerator.get_right_walls());
     data_->set_horizontal_matrix(mazeGenerator.get_bottom_walls());
 
@@ -169,7 +169,7 @@ void MainWindow::SaveButton(){
     if (data_->get_cols() == 0 || data_->get_rows() == 0) {
         ui_->statusbar->showMessage("Тут нечего сохранять 🥲");
     } else{
-        frp::SaveData saver(data_);
+        frp::SaveData saver(*data_);
         QString destinationPath = QFileDialog::getSaveFileName(this, "Выбeрите папку", "/", ".txt");
         saver.SaveFile(destinationPath.toStdString());
         ui_->statusbar->showMessage("Сохранено 💾", 3000);

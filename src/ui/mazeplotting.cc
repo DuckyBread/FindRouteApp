@@ -9,6 +9,4 @@ void MazePlotting::initializeGL() {
 
 }
 
-void MazePlotting::paintGL() {
-
-}
+void MazePlotting::paintGL() {}

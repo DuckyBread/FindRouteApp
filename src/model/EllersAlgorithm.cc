@@ -11,7 +11,7 @@ EllersAlgorithm::EllersAlgorithm(Data &data) : data_(data) {
 
 void EllersAlgorithm::GenerateMaze() {
   FillEmptyValue();
-  for (int j = 0; j < data_->get_rows() - 1; ++j) {
+  for (int j = 0; j < data_.get_rows() - 1; ++j) {
     AssignUniqueSet();
     AddingVerticalWalls(j);
     AddingHorizontalWalls(j);
@@ -22,13 +22,13 @@ void EllersAlgorithm::GenerateMaze() {
 }
 
 void EllersAlgorithm::FillEmptyValue() {
-  for (int i = 0; i < data_->get_cols(); ++i) {
+  for (int i = 0; i < data_.get_cols(); ++i) {
     tmp_line_.push_back(false);
   }
 }
 
 void EllersAlgorithm::AssignUniqueSet() {
-  for (int i = 0; i < data_->get_cols(); ++i) {
+  for (int i = 0; i < data_.get_cols(); ++i) {
     if (tmp_line_.at(i) == false) {
       tmp_line_.at(i) = currentSet;
       ++currentSet;

@@ -21,8 +21,9 @@ gcov_report: tests
 	open ./report/index.html
 
 style:
-	clang-format -n -style=Google back/*.cc back/*.h --verbose
-	clang-format -n -style=Google front/*.cpp front/*.h --verbose
+	clang-format -n -style=Google model/*.cc model/*.h --verbose
+	clang-format -n -style=Google ui/*.cpp ui/*.h --verbose
+	clang-format -n -style=Google tests/*.cc --verbose
 
 tests: clean
 	$(CC) $(FLAGS) tests/tests.cc back/*.cc $(LIBS) && ./a.out

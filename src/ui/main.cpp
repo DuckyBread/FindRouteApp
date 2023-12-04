@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[]) {
   QApplication a(argc, argv);
-  s21::Data data;
+  frp::Data data;
   MainWindow w(nullptr, &data);
 
   w.setFixedSize(w.width(), w.height());

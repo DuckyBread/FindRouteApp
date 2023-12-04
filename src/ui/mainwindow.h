@@ -9,11 +9,11 @@
 #include <QSettings>
 #include <QString>
 
-#include "../back/Data.h"
-#include "../back/EllersAlgorithm.h"
-#include "../back/LoadData.h"
-#include "../back/Maze.h"
-#include "../back/SaveData.h"
+#include "model/Data.h"
+#include "model/EllersAlgorithm.h"
+#include "model/LoadData.h"
+#include "model/Maze.h"
+#include "model/SaveData.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
