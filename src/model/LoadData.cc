@@ -1,9 +1,9 @@
 #include "LoadData.h"
 
 namespace frp {
-LoadData::LoadData(Data &data) : data_(data) {}
+LoadData::LoadData(Data& data) : data_(data) {}
 
-void LoadData::ReadFile(const std::string &file_path) {
+void LoadData::ReadFile(const std::string& file_path) {
   std::ifstream in(file_path);
   if (!in.is_open()) {
     throw std::logic_error("File doesn't exist\n");
@@ -15,7 +15,7 @@ void LoadData::ReadFile(const std::string &file_path) {
   }
 
   std::vector<bool> first_matrix(rows * cols), second_matrix(rows * cols);
-  for (auto&& i:first_matrix) {
+  for (auto&& i : first_matrix) {
     int tmpInsert;
     if (!(in >> tmpInsert)) {
       throw std::logic_error("Incorrect data in the file\n");

@@ -11,8 +11,8 @@ bool Maze::IsVisited(std::pair<int, int> cell) {
 }
 
 bool Maze::IsExist(std::pair<int, int> cell) {
-  return cell.first > -1 && cell.first < data_.get_rows() &&
-         cell.second > -1 && cell.second < data_.get_cols();
+  return cell.first > -1 && cell.first < data_.get_rows() && cell.second > -1 &&
+         cell.second < data_.get_cols();
 }
 
 std::pair<bool, bool> Maze::IsWall(std::pair<int, int> cell) {
@@ -43,9 +43,10 @@ void Maze::FindRoute(std::pair<int, int> src, std::pair<int, int> dst) {
     queue_of_cells.pop();
 
     for (auto item : moves_) {
-        std::pair<int, int> current_cell(cell.first + item.first,cell.second + item.second);
+      std::pair<int, int> current_cell(cell.first + item.first,
+                                       cell.second + item.second);
       if (!IsExist(current_cell) || IsVisited(current_cell)) {
-          continue;
+        continue;
       }
 
       /* Check current cell for existing of wall */
